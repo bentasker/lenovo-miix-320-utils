@@ -1,0 +1,11 @@
+input_device: /dev/input/by-path/platform-gpio-keys.3.auto-event
+
+modes:
+  laptop:
+    - pkill onboard
+    - pkill -f auto_rotate.py && /home/ben/bin/rotate_touchpad.sh
+    - xrandr --output DSI1 --rotate right
+    - /home/ben/bin/rotate_touchpad.sh
+  tablet:
+    - onboard &
+    - /home/ben/bin/auto_rotate.py &
